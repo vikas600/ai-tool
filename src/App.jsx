@@ -33,16 +33,6 @@ const askQuestion = async () => {
     return;
   }
 
-  // if (question) {
-  //   let history = JSON.parse(localStorage.getItem("history") || "[]");
-  //   history = [query, ...history.filter((item) => item !== query)];
-  //   history = history.slice(0, 20).map(
-  //     (item) => item.charAt(0).toUpperCase() + item.slice(1).trim()
-  //   );
-  //   localStorage.setItem("history", JSON.stringify(history));
-  //   setRecentHistory(history);
-  // }
-
   if (question) {
   let history = JSON.parse(localStorage.getItem("history") || "[]");
 
@@ -199,7 +189,7 @@ const askQuestion = async () => {
       />
     </div>
 
-    <div className="flex-1 md:col-span-4 p-4 md:p-10">
+    <div className="flex-1 md:col-span-4 p-4 md:p-10 main-content">
       <h1 className="text-2xl md:text-4xl p-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-700 to-violet-700">
         Hello User, Ask me Anything!
       </h1>
