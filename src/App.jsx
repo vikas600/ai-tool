@@ -33,15 +33,35 @@ const askQuestion = async () => {
     return;
   }
 
+  // if (question) {
+  //   let history = JSON.parse(localStorage.getItem("history") || "[]");
+  //   history = [query, ...history.filter((item) => item !== query)];
+  //   history = history.slice(0, 20).map(
+  //     (item) => item.charAt(0).toUpperCase() + item.slice(1).trim()
+  //   );
+  //   localStorage.setItem("history", JSON.stringify(history));
+  //   setRecentHistory(history);
+  // }
+
   if (question) {
-    let history = JSON.parse(localStorage.getItem("history") || "[]");
-    history = [query, ...history.filter((item) => item !== query)];
-    history = history.slice(0, 20).map(
-      (item) => item.charAt(0).toUpperCase() + item.slice(1).trim()
-    );
-    localStorage.setItem("history", JSON.stringify(history));
-    setRecentHistory(history);
-  }
+  let history = JSON.parse(localStorage.getItem("history") || "[]");
+
+ 
+  const normalizedQuery = query.trim().toLowerCase();
+
+
+  history = history.filter(
+    (item) => item.trim().toLowerCase() !== normalizedQuery
+  );
+
+  history = [query, ...history]
+    .slice(0, 20)
+    .map((item) => item.charAt(0).toUpperCase() + item.slice(1).trim());
+
+  localStorage.setItem("history", JSON.stringify(history));
+  setRecentHistory(history);
+}
+
 
   const payload = {
     contents: [
