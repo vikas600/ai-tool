@@ -22,6 +22,7 @@ export default function App() {
   const [showSidebar, setShowSidebar] = useState(false);
 
 const askQuestion = async () => {
+  
   const query = (question || selectedHistory || "").trim();
 
   if (query.length < 2) {
